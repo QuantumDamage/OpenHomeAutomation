@@ -8,3 +8,4 @@ while 1:
 	os.system(data_package)
 
 #tutaj jest to calkiem ladnie opisane: http://www.stealthcopter.com/blog/2010/02/python-interfacing-with-an-arduino/
+#dodatkowa testowa zmiana
