@@ -6,7 +6,7 @@ import calendar
 from time import strftime 
 
 # configuration
-DATABASE = '../server/baza.db'
+DATABASE = 'data/baza.db'
 DEBUG = True
 
 # create our little application :)
