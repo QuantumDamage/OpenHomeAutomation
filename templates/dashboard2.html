@@ -1,0 +1,61 @@
+<!doctype html>
+<title>OHA!</title>
+<head>
+<meta http-equiv="refresh" content="180" >
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+	<script type=text/javascript src="{{url_for('static', filename='js/flot/jquery.js') }}"></script>
+	<script type=text/javascript src="{{url_for('static', filename='js/flot/jquery.flot.js') }}"></script>
+	<script type=text/javascript src="{{url_for('static', filename='js/flot/jquery.flot.time.js') }}"></script>
+	<script type=text/javascript src="{{url_for('static', filename='js/shared/jquery-ui.min.js') }}"></script>
+	
+		<script type="text/javascript">
+		$(function() {
+		
+		var plotDates = [{% for entry in entries %}{{ entry.date }}*1000,{% endfor %}];
+		var plotTemperatures = [{% for entry in entries %}{{ entry.temperature }},{% endfor %}];
+		var plotTemperatures_outside = [{% for entry in entries %}{{ entry.temperature_outside }},{% endfor %}];
+		
+		var res = [];
+			for (var i = 0; i <= plotTemperatures.length; ++i) {
+				res.push([plotDates[plotTemperatures.length-i-1],plotTemperatures[plotTemperatures.length-i-1]])
+			}
+		var outside = [];
+			for (var i = 0; i <= plotTemperatures.length; ++i) {
+				outside.push([plotDates[plotTemperatures.length-i-1],plotTemperatures_outside[plotTemperatures.length-i-1]])
+			}
+		var placeholder = $("#placeholder");
+		var plot = $.plot(placeholder, [{label: "Home", data: res}, {label: "Outside", data: outside} ], {yaxis: {position:'right'}, xaxis: {mode:'time'}, legend: {position: "nw"}});
+		//resize:
+		placeholder.resize(function () {
+			$(".message").text("Placeholder is now "
+				+ $(this).width() + "x" + $(this).height()
+				+ " pixels");
+		});
+
+		$(".demo-container").resizable({
+			maxWidth: 900,
+			maxHeight: 500,
+			minWidth: 450,
+			minHeight: 250,
+		});
+		//end of resize
+		
+		});	
+			
+		</script>
+	
+</head>
+<body>
+  <div class="header">
+  <h1>Wykres temperatur w domu i na zewnątrz</h1></div>
+  <div id="left">
+  <h3>Trzy ostatnie wpisy:</h3>
+  <ul class=entries>
+    <li>{{ entries[0].datenormal  }}  ---  {{ entries[0].temperature }} --- {{ entries[0].temperature_outside }}</li>
+    <li>{{ entries[1].datenormal  }}  ---  {{ entries[1].temperature }} --- {{ entries[1].temperature_outside }}</li>
+    <li>{{ entries[2].datenormal  }}  ---  {{ entries[2].temperature }} --- {{ entries[2].temperature_outside }}</li>
+  </ul>
+  </div>
+  <div><div id="placeholder" style="width:700px;height:200px"></div></div>
+  <div class="footer">rr</div>
+</body>

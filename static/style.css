@@ -1,0 +1,66 @@
+h2 {
+	text-align: center;
+}
+
+.page {
+	width: 800px;
+	height: 1280px;
+	margin: auto;
+	background-color: #9DEB9E;
+}
+.header {
+	height:5%;
+}
+
+.left-top {
+	float: left;
+	width: 50%;
+	height: 45%;
+}
+
+.right-top {
+   /*background-color: green;*/
+   float: right;
+	width: 50%;
+	height: 45%;
+}
+
+.left-bottom {
+	clear: left;
+	float: left;
+	width: 50%;
+	height: 45%;
+
+}
+
+.right-bottom {
+	clear: right;
+	float: right;
+	width: 50%;
+	height: 45%;
+}
+
+.footer {
+	clear: both;
+	height: 5%;
+}
+
+.credits {
+	text-align: center;
+}
+
+#placeholder {
+	width: 320px;
+	height: 200px;
+	margin: auto;
+	border: 2px dashed;
+	background-color: #F5F1D5;
+}
+
+.led {
+	background-color: #E9F5D5;
+	width: 50px;
+	text-align: center;
+	margin: auto;
+	border-radius: 10px;
+}
