@@ -7,7 +7,7 @@ import json
 con = None
 
 try:
-    con = lite.connect('baza.db')
+    con = lite.connect('data/baza.db')
     
     cur = con.cursor()    
     cur.execute('SELECT SQLITE_VERSION()')
