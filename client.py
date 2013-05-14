@@ -27,7 +27,7 @@ def show_Dashboard():
 	db = get_db()
 	cur = db.execute('select strftime("%s",date) as date, date as datenormal ,temperature,temperature_outside from temperatures where temperatures.date > datetime(\'now\',\'-24 hour\', \'localtime\') order by date desc;')
 	entries = cur.fetchall()
-	return render_template('dashboard3.html', entries=entries)
+	return render_template('dashboard.html', entries=entries)
 
 
 if __name__ == '__main__':
