@@ -48,7 +48,7 @@ void printTemperature(DeviceAddress deviceAddress)
 void loop(void)
 { 
   //10k is 10s
-  delay(30000);
+  delay(180000);
   //Serial.print("Getting temperatures...\n\r");
   sensors.requestTemperatures();
   

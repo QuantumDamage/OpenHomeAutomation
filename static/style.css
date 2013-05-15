@@ -3,26 +3,30 @@ h2 {
 }
 
 .page {
-	width: 800px;
-	height: 1280px;
-	margin: auto;
+	position: absolute; 
+	top: 0; 
+	bottom: 0; 
+	left: 0; 
+	right: 0;
 	background-color: #9DEB9E;
 }
+
+
+
 .header {
-	height:5%;
+	height:10%;
 }
 
 .left-top {
 	float: left;
 	width: 50%;
-	height: 45%;
+	height: 80%;
 }
 
 .right-top {
-   /*background-color: green;*/
-   float: right;
+    float: right;
 	width: 50%;
-	height: 45%;
+	height: 80%;
 }
 
 .left-bottom {
@@ -42,7 +46,7 @@ h2 {
 
 .footer {
 	clear: both;
-	height: 5%;
+	height: 10%;
 }
 
 .credits {
@@ -50,8 +54,8 @@ h2 {
 }
 
 #placeholder {
-	width: 320px;
-	height: 200px;
+	width: 90%;
+	height: 90%;
 	margin: auto;
 	border: 2px dashed;
 	background-color: #F5F1D5;
