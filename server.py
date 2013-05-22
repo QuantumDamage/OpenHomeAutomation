@@ -32,7 +32,10 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
 	def do_GET(self):
 		print "Got %s!" % self.path[1:6]
 		self.send_response(200)
-		cels= self.path[1:6]
+		#cels= self.path[1:6]
+		split_data = self.path.split(";")
+		hum = split_data[0]
+		cels = split_data[1]
 		#temperatura na zewnatrz:
 		f = urllib2.urlopen('http://api.wunderground.com/api/a105856cea4d589b/conditions/q/pws:IDOLNOU013.json') 
 		json_string = f.read() 
@@ -42,10 +45,9 @@ class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
 		f.close()
 		#koniec temperatury na zewnatrz
 		with con:
-		    cur = con.cursor()    
-		    #cur.execute("CREATE TABLE temperatures(date INT, temperature FLOAT, temperature_outside FLOAT,  location TEXT)")
-		    query = """INSERT INTO temperatures (date, temperature, temperature_outside , location) VALUES (datetime('now', 'localtime'), ?, ?, ?)"""
-		    data =  [cels,temp_c,'sypialnia']
+		    cur = con.cursor()
+		    query = """INSERT INTO temperatures (date, temperature, temperature_outside , location, humidity) VALUES (datetime('now', 'localtime'), ?, ?, ?, ?)"""
+		    data =  [cels,temp_c,'sypialnia',hum]
 		    cur.execute(query, data)
 
 
