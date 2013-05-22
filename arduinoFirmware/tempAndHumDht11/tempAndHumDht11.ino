@@ -19,7 +19,7 @@ void loop() {
     Serial.println("Failed to read from DHT");
   } else {
     Serial.print(h);
-    Serial.print(" "); 
+    Serial.print(";"); 
     Serial.print(t);
     Serial.print("\n");
     //10k is 10s:
