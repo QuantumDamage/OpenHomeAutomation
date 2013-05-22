@@ -30,10 +30,10 @@ except lite.Error, e:
 
 class Handler(BaseHTTPServer.BaseHTTPRequestHandler):
 	def do_GET(self):
-		print "Got %s!" % self.path[1:6]
+		print "Got %s!" % self.path[1:12]
 		self.send_response(200)
 		#cels= self.path[1:6]
-		split_data = self.path.split(";")
+		split_data = self.path[1:12].split(";")
 		hum = split_data[0]
 		cels = split_data[1]
 		#temperatura na zewnatrz:
